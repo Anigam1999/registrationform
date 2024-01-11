@@ -245,7 +245,10 @@ label[for=accept] {
         /* text-shadow: 2px 2px 5px rgb(137, 63, 221); */
         font-family: "Audiowide", sans-serif;
     }
-
+    legend {
+        font-size: 14px;
+        /* display: none; */
+    }
     .regform {
         /* display: inline-block; */
         /* justify-content: center; */
@@ -268,4 +271,18 @@ label[for=accept] {
         margin: 5px;
         font-size: 20px;
     }
+}
+@media screen and (max-width: 250px) {
+    #profile-image {
+        width: 80%;
+    }
+    #profile-input{
+        width: 100%;
+    }
+    .education input[type=file] {
+        width: 100%;
+    }
+    /* .additional legend {
+        content: "";
+    } */
 }
