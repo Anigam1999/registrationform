@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Mindfire Registration Form
+    </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Mindfire Registration Form</h2>
+    <div class="regform">
+        <form id="form1" action="/index.js" target="_blank" autocomplete="on" method="post">
+            <fieldset>
+                <legend>Personal Details</legend>
+                <div class="container">
+                    <div class="details">
+                        <label for="fname">First Name:</label>
+                        <input type="text" id="fname" name="firstname" placeholder="first name" autofocus required>
+                        <label for="mname">Middle Name:</label>
+                        <input type="text" id="mname" name="middlename" placeholder="middle name">
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" name="lastname" placeholder="last name" required>
+                        <label for="birthday">Birthday:</label>
+                        <input type="date" id="birthday" name="birthday">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                        <label for="contact">Contact:</label>
+                        <select name="code">
+                            <option value="+91">+91</option>
+                            <option value="+81">+81</option>
+                            <option value="+86">+86</option>
+                            <option value="+93">+93</option>
+                        </select>
+                        <input type="tel" id="contact" name="contact" pattern="^[789]\d{9}$" required>
+
+                        <label>Gender:</label>
+                        <input type="radio" id="male" name="gender" value="Male" required>
+                        <label class="gen" for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="Female">
+                        <label class="gen" for="female">Female</label>
+                        <label for="address1" >Address&nbspLine1:</label>
+                        <input type="text" id="address1" name="address1" required>
+                        <label for="address2" >Address&nbspLine2&nbsp:</label>
+                        <input type="text" id="address2" name="address2">
+                        <label for="address3" >Address&nbspLine3&nbsp;:</label>
+                        <input type="text" id="address3" name="address3">
+                    </div>
+                    <div class="profile">
+                        <img title="please upload jpeg/png image" id="profile-image" src="profile.png"
+                            alt="profile image">
+                        <input id="profile-input" type="file" name="profile" form="form1" required>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="education">
+                <legend>Educational Details</legend>
+                <div>
+                    <label for="highschoolname">High School Name:</label>
+                    <input type="text" id="highschoolname" name="highschool" required>
+                    <label for="tenth">Percentage:</label>
+                    <input id="tenth" type="number" step=".01" min="0" max="100" name="high school marks" required>
+                    <input type="file" name="mytenthfile" required>
+                </div>
+                <div>
+                    <label for="interschoolname">Inter School Name:</label>
+                    <input type="text" id="interschoolname" name="interschool" required>
+                    <label for="twelveth">Percentage:</label>
+                    <input id="twelveth" type="number" step=".01" min="0" max="100" name="inter school marks" required>
+                    <input type="file" name="mytwelvethfile" required>
+                </div>
+                <div>
+                    <label for="universityname">University Name:</label>
+                    <input type="text" id="universityname" name="university" required>
+                    <label for="graduation">CGPA:</label>
+                    <input id="graduation" type="number" step=".01" min="0" max="10" name="graduation" required>
+                    <input type="file" name="mygraduationfile" required>
+                </div>
+            </fieldset>
+
+            <fieldset class="additional">
+                <legend>Additional Information(optional)</legend>
+                <label for="location">Preferred Location:</label>
+                <input type="text" list="location">
+                <datalist id="location">
+                    <option value="Bhubaneswar">
+                    <option value="Bangalore">
+                    <option value="Chennai">
+                    <option value="Mumbai">
+                    <option value="Noida">
+                </datalist>
+                <label for="cover">Cover Letter:</label>
+                <textarea id="cover" name="cover"></textarea>
+            </fieldset>
+            
+            <div class="btn">
+                <input class="btns" type="submit" value="Submit">
+                <input class="btns" type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+    <script>
+        // Get the input element
+        var input = document.getElementById("profile-input");
+        // Add an onchange event listener
+        input.addEventListener("change", function () {
+            // Get the selected file
+            var file = this.files[0];
+            // Create a new FileReader object
+            var reader = new FileReader();
+            // Add an onload event listener
+            reader.onload = function () {
+                // Get the image element
+                var image = document.getElementById("profile-image");
+                // Set the src attribute to the base64 encoded image data
+                image.src = this.result;
+            };
+            // Read the file as a data URL
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+
+</html>
