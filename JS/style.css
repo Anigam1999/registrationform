@@ -105,7 +105,7 @@ img {
     border: 1px solid black;
 }
 
-#profile-input {
+#fileProfileInput {
     display: block;
     width: 180px;
     margin: 10px auto 10px;
@@ -116,13 +116,13 @@ img {
     justify-content: space-between;
 }
 
-#contact {
+#telContact {
     width: 33%;
 }
 
-#highschoolname,
-#interschoolname,
-#universityname {
+#txthighschoolname,
+#txtinterschoolname,
+#txtuniversityname {
     max-width: 70%;
     width: 50%;
     margin-bottom: -3px;
@@ -166,7 +166,7 @@ input[type=checkbox] {
     margin: 0px;
     margin-right: 8px;
 }
-label[for=accept] {
+label[for=chkbxAccept] {
     width: 100%;
 }
 @media screen and (max-width: 725px) {
@@ -195,13 +195,13 @@ label[for=accept] {
         margin: 5px 5px;
     }
 
-    #contact {
+    #telContact {
         width: 75%;
     }
 
-    #highschoolname,
-    #interschoolname,
-    #universityname {
+    #txthighschoolname,
+    #txtinterschoolname,
+    #txtuniversityname {
         display: inline-block;
         max-width: 100%;
         width: 100%;
@@ -273,10 +273,10 @@ label[for=accept] {
     }
 }
 @media screen and (max-width: 250px) {
-    #profile-image {
+    #fileProfileImage {
         width: 80%;
     }
-    #profile-input{
+    #fileProfileInput{
         width: 100%;
     }
     .education input[type=file] {
