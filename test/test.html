@@ -1,10 +1,99 @@
 <!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form with Local Storage</title>
+  <style>
+    /* Your CSS styles here */
+  </style>
+</head>
 <body>
 
-<p>I will display A B C</p>
-<p>I will display &#65; &#66; &#67;</p>
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // Your JavaScript code here
+    document.getElementById('myForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Get form data using FormData
+      let formData = new FormData(event.target);
+
+      // Convert FormData to a plain object
+      let formDataObject = {};
+      formData.forEach((value, key) => {
+        formDataObject[key] = value;
+      });
+
+      // Convert the object to a JSON string and store it in local storage
+      localStorage.setItem('formData', JSON.stringify(formDataObject));
+
+      // Optionally, you can clear the form fields after submission
+      event.target.reset();
+
+      alert('Form data saved to local storage!');
+    });
+  </script>
 
 </body>
 </html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form with Local Storage</title>
+  <style>
+    /* Your CSS styles here */
+  </style>
+</head>
+<body>
+
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // Your JavaScript code here
+    document.getElementById('myForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Get form data
+      let name = document.getElementById('name').value;
+      let email = document.getElementById('email').value;
+
+      // Create an object to store the form data
+      let formData = {
+        name: name,
+        email: email
+      };
+
+      // Convert the object to a JSON string and store it in local storage
+      localStorage.setItem('formData', JSON.stringify(formData));
+
+      // Optionally, you can clear the form fields after submission
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+
+      alert('Form data saved to local storage!');
+    });
+  </script>
+
+</body>
+</html> -->

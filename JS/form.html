@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="online-survey.png"/>
+    <title>
+        Mindfire Registration Form
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide&effect=emboss">
+</head>
+
+<body>
+    <h2 class="font-effect-emboss">Mindfire Registration Form</h2>
+    <div class="regform">
+        <form id="form1" action="/index.js" target="_blank" autocomplete="on" method="post">
+            <fieldset>
+                <legend>Personal Details</legend>
+                <div class="container">
+                    <div class="details">
+                        <label for="fname">First Name<span>*</span>:</label>
+                        <input type="text" id="fname" name="firstname" placeholder="first name" autofocus required>
+                        <label for="mname">Middle Name:</label>
+                        <input type="text" id="mname" name="middlename" placeholder="middle name">
+                        <label for="lname">Last Name<span>*</span>:</label>
+                        <input type="text" id="lname" name="lastname" placeholder="last name" required>
+                        <label for="birthday">Birthday:</label>
+                        <input type="date" id="birthday" name="birthday">
+                        <label for="email">E-mail<span>*</span>:</label>
+                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                        <label for="contact">Contact<span>*</span>:</label>
+                        <select name="code">
+                            <option value="+91">+91</option>
+                            <option value="+81">+81</option>
+                            <option value="+86">+86</option>
+                            <option value="+93">+93</option>
+                        </select>
+                        <input type="tel" id="contact" name="contact" pattern="^[789]\d{9}$" required>
+
+                        <label>Gender<span>*</span>:</label>
+                        <input type="radio" id="male" name="gender" value="Male" required>
+                        <label class="gen" for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="Female">
+                        <label class="gen" for="female">Female</label>
+                        <label for="address1" >Address&nbspLine1<span>*</span>:</label>
+                        <input type="text" id="address1" name="address1" required>
+                        <label for="address2" >Address&nbspLine2&nbsp:</label>
+                        <input type="text" id="address2" name="address2">
+                        <label for="address3" >Address&nbspLine3&nbsp;:</label>
+                        <input type="text" id="address3" name="address3">
+                    </div>
+                    <div class="profile">
+                        <img title="please upload jpeg/png image" id="profile-image" src="profile.png"
+                            alt="profile image">
+                        <input id="profile-input" type="file" name="profile" form="form1">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="education">
+                <legend>Educational Details</legend>
+                <div>
+                    <label for="highschoolname">High School Name<span>*</span>:</label>
+                    <input type="text" id="highschoolname" name="highschool" required>
+                    <label for="tenth">Percentage<span>*</span>:</label>
+                    <input id="tenth" type="number" step=".01" min="0" max="100" name="high school marks" required>
+                    <input type="file" name="mytenthfile">
+                </div>
+                <div>
+                    <label for="interschoolname">Inter School Name<span>*</span>:</label>
+                    <input type="text" id="interschoolname" name="interschool">
+                    <label for="twelveth">Percentage<span>*</span>:</label>
+                    <input id="twelveth" type="number" step=".01" min="0" max="100" name="inter school marks" required>
+                    <input type="file" name="mytwelvethfile">
+                </div>
+                <div>
+                    <label for="universityname">University Name<span>*</span>:</label>
+                    <input type="text" id="universityname" name="university" required>
+                    <label for="graduation">CGPA<span>*</span>:</label>
+                    <input id="graduation" type="number" step=".01" min="0" max="10" name="graduation" required>
+                    <input type="file" name="mygraduationfile">
+                </div>
+            </fieldset>
+
+            <fieldset class="additional">
+                <legend>Additional Information(optional)</legend>
+                <label for="location">Preferred Location:</label>
+                <input type="text" list="location">
+                <datalist id="location">
+                    <option value="Bhubaneswar">
+                    <option value="Bangalore">
+                    <option value="Chennai">
+                    <option value="Mumbai">
+                    <option value="Noida">
+                </datalist>
+                <label for="cover">Cover Letter:</label>
+                <textarea id="cover" name="cover"></textarea>
+            </fieldset>
+            
+            <label for="accept"><input type="checkbox" name="acceptance" id="accept">By submitting this form, I confirm that I have read and agree to the terms and conditions of the service and that all the information I have provided is true and accurate to the best of my knowledge.</label>
+            <div class="btn">
+                <input class="btns" type="submit" value="Submit">
+                <input class="btns" type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+    <script src="profile.js" ></script>
+    <script src="localstorage.js" ></script>
+    <script src="formvalidation.js"></script>
+    <script src="modal.js"></script>
+</body>
+
+</html>
