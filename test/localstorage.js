@@ -1,3 +1,4 @@
+import showModal from "./modal";
 // Your JavaScript code here
 document.getElementById('form1').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default form submission
@@ -14,7 +15,6 @@ document.getElementById('form1').addEventListener('submit', function (event) {
     // Convert the object to a JSON string and store it in local storage
     localStorage.setItem('formData', JSON.stringify(formDataObject));
 
-    // Optionally, you can clear the form fields after submission
-    event.target.reset();
+    showModal();
 
 });
