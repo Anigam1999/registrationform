@@ -33,8 +33,15 @@ function showModal() {
     let storedData = JSON.parse(localStorage.getItem('formData'));
 
     // Display data in the modal
-    // modalContent.innerHTML = "<p>Email: " + storedData.email + "</p>";
-    modalContent.innerHTML = localStorage.getItem('formData');
+    let content = ""
+    for(let key in storedData){
+        if(typeof storedData[key] === 'object' && Object.keys(storedData[key]).length === 0)
+            continue;
+        if(storedData[key] !== "")
+            content += '<p class="keys">' + key + ':</p><p class="values">' + storedData[key] + '</p>'
+    }
+    modalContent.innerHTML = content;
+    
 
     // Show the modal and overlay
     modal.style.display = 'block';

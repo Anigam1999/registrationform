@@ -1,9 +1,15 @@
 * {
     box-sizing: border-box;
 }
-
+.reviewcontainer { 
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px; 
+    font-weight: 600;
+}
 #myModal {
     display: none;
+    width: 50%;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -11,8 +17,29 @@
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ccc;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    overflow: auto;
+}
+#closeModal {
+    padding: 3px 8px;
+    color: rgb(74, 9, 148);
+}
+#closeModal:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+#myModal p {
+    display: inline-block;
+    margin: 5px;
+}
+#myModal .keys {
+    width: 30%;
+}
+#myModal .values {
+    width: 60%;
 }
 
 #overlay {
@@ -104,6 +131,7 @@ div.container input[type=radio] {
     display: inline-block;
     max-width: 100%;
     width: 5%;
+    cursor: pointer;
 }
 
 div.container .gen {
