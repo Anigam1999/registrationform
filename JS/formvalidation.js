@@ -7,38 +7,43 @@ function addRequired(){
     }
 }
 
-// displaying warning for input tags
 const x = document.querySelectorAll(".details input");
-for(let i=0; i<x.length; i++){
-    if(x[i].type === "text"){
+
+for (let i = 0; i < x.length; i++) {
+    if (x[i].type === "text") {
         x[i].addEventListener("input", warnAlpha);
-        function warnAlpha() {
-            if(x[i].value.length === 0)
-                return 
-            // x[i].parentNode.style.height = "40px"
-            const isValid = x[i].value.at(-1).match(/[a-zA-z,.\s]/)
-            const ptags = x[i].parentNode.querySelectorAll("p")
-            if(isValid === null){
-                x[i].value = x[i].value.substr(0, x[i].value.length - 1);
-                const textnode = document.createTextNode(x[i].name + " should contain only alphabets");
-                const node = document.createElement("p");
-                node.appendChild(textnode);
-                if(ptags.length === 0){
-                    x[i].parentNode.appendChild(node);
-                    node.style.display = "block";
-                }
-            } else if(ptags.length === 1){
-                x[i].parentNode.removeChild(ptags[0]);
-            }
-        }
         x[i].addEventListener("change", revertBack);
-        function revertBack(){
-            const ptags = x[i].parentNode.querySelectorAll("p")
-        //     x[i].parentNode.style.height = "auto";
-            if(ptags.length === 1){
-                x[i].parentNode.removeChild(ptags[0]);
-            }
+    }
+}
+
+function warnAlpha() {
+    if (this.value.length === 0) {
+        return;
+    }
+
+    const isValid = this.value.at(-1).match(/[a-zA-z,.\s]/);
+    const ptags = this.parentNode.querySelectorAll("p");
+
+    if (isValid === null) {
+        this.value = this.value.substr(0, this.value.length - 1);
+        const textnode = document.createTextNode(this.name + " should contain only alphabets");
+        const node = document.createElement("p");
+        node.appendChild(textnode);
+
+        if (ptags.length === 0) {
+            this.parentNode.appendChild(node);
+            node.style.display = "block";
         }
+    } else if (ptags.length === 1) {
+        this.parentNode.removeChild(ptags[0]);
+    }
+}
+
+function revertBack() {
+    const ptags = this.parentNode.querySelectorAll("p");
+
+    if (ptags.length === 1) {
+        this.parentNode.removeChild(ptags[0]);
     }
 }
     
