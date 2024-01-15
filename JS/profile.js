@@ -1,5 +1,5 @@
 // Get the input element
-var input = document.getElementById("profile-input");
+var input = document.getElementById("fileProfileInput");
 // Add an onchange event listener
 input.addEventListener("change", function () {
     // Get the selected file
@@ -9,7 +9,7 @@ input.addEventListener("change", function () {
     // Add an onload event listener
     reader.onload = function () {
         // Get the image element
-        var image = document.getElementById("profile-image");
+        var image = document.getElementById("fileProfileImage");
         // Set the src attribute to the base64 encoded image data
         image.src = this.result;
     };

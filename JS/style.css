@@ -87,6 +87,7 @@ span {
 fieldset {
     width: auto;
     margin: 10px 0;
+    padding-bottom: 20px;
 }
 
 legend {
@@ -109,6 +110,7 @@ select {
 }
 
 input[type=file] {
+    cursor: pointer;
     height: 30px;
     margin-bottom: 10px;
     padding: 5px;
@@ -159,13 +161,35 @@ img {
 
 #fileProfileInput {
     display: block;
-    width: 180px;
+    width: 170px;
     margin: 10px auto 10px;
 }
-
+#dateBirthday {
+    height: 27px;
+}
+select {
+    height: 27px;
+}
 .container {
     display: flex;
     justify-content: space-between;
+}
+.details {
+    width: 70%;
+}
+.details div {
+    position: relative;
+    height: 40px;
+}
+.container p {
+    display: none;
+    position: absolute;
+    overflow: visible;
+    z-index: 1;
+    color: red;
+    font-size: 10px;
+    margin-left: 41%;
+    margin-top: -8px;
 }
 
 #telContact {
@@ -230,11 +254,17 @@ label[for=chkbxAccept] {
     .container {
         flex-direction: column-reverse;
     }
-
+    .container p {
+        margin-left: 0%;
+    }
+    .details {
+        width: 100%;
+    }
     div.details label {
         display: block;
         width: auto;
         height: 20px;
+        margin-top: 20px;
     }
 
     div.details input {
@@ -253,7 +283,7 @@ label[for=chkbxAccept] {
     }
 
     #telContact {
-        width: 75%;
+        width: 60%;
     }
 
     #txthighschoolname,

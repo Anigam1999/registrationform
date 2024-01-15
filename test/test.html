@@ -3,207 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form with Modal</title>
+  <title>Alphabetic Input Validation</title>
   <style>
     /* Your CSS styles here */
-    #myModal {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 20px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-
-    #overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
+    .warning-message {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
     }
   </style>
 </head>
 <body>
 
   <form id="myForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
+    <label for="txtName">Name:</label>
+    <input type="text" id="txtName" name="Name" placeholder="Enter your name">
+    <div id="warningMessage" class="warning-message"></div>
+    <br>
+    <label for="txtOther">Other Field:</label>
+    <input type="text" id="txtOther" name="Other" placeholder="Another input field">
+    <br>
     <button type="submit">Submit</button>
   </form>
 
-  <!-- Modal and Overlay -->
-  <div id="myModal">
-    <span id="closeModal">&times;</span>
-    <div id="modalContent"></div>
-  </div>
-  <div id="overlay"></div>
-
   <script>
     // Your JavaScript code here
-    document.getElementById('myForm').addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent the default form submission
+    const form = document.getElementById('myForm');
+    const txtName = document.getElementById('txtName');
+    const warningMessage = document.getElementById('warningMessage');
 
-      // Get form data using FormData
-      let formData = new FormData(event.target);
-
-      // Convert FormData to a plain object
-      let formDataObject = {};
-      formData.forEach((value, key) => {
-        formDataObject[key] = value;
-      });
-
-      // Convert the object to a JSON string and store it in local storage
-      localStorage.setItem('formData', JSON.stringify(formDataObject));
-
-      // Show modal on form submission
-      showModal();
+    form.addEventListener('input', function (event) {
+      if (event.target === txtName) {
+        validateAlphabeticInput(txtName);
+      }
     });
 
-    // Function to show the modal
-    function showModal() {
-      // Get the modal and overlay elements
-      let modal = document.getElementById('myModal');
-      let overlay = document.getElementById('overlay');
-      let modalContent = document.getElementById('modalContent');
+    form.addEventListener('submit', function (event) {
+      if (!validateAlphabeticInput(txtName)) {
+        event.preventDefault();
+        warningMessage.textContent = 'Please enter only alphabets in the Name field.';
+      } else {
+        warningMessage.textContent = '';
+      }
+    });
 
-      // Get the close button inside the modal
-      let closeModalBtn = document.getElementById('closeModal');
+    function validateAlphabeticInput(input) {
+      const inputValue = input.value.trim();
+      const isValid = /^[a-zA-Z]+$/.test(inputValue);
 
-      // Retrieve data from local storage
-      let storedData = JSON.parse(localStorage.getItem('formData'));
+      if (!isValid) {
+        setInvalid(input, 'Please enter only alphabets.');
+        return false;
+      } else {
+        setValid(input);
+        return true;
+      }
+    }
 
-      // Display data in the modal
-      modalContent.innerHTML = "<p>Name: " + storedData.name + "</p><p>Email: " + storedData.email + "</p>";
+    function setInvalid(input, message) {
+      input.classList.add('invalid');
+      warningMessage.textContent = message;
+    }
 
-      // Show the modal and overlay
-      modal.style.display = 'block';
-      overlay.style.display = 'block';
-
-      // Close modal when the close button is clicked
-      closeModalBtn.onclick = function () {
-        modal.style.display = 'none';
-        overlay.style.display = 'none';
-      };
-
-      // Close modal if overlay is clicked
-      overlay.onclick = function () {
-        modal.style.display = 'none';
-        overlay.style.display = 'none';
-      };
+    function setValid(input) {
+      input.classList.remove('invalid');
     }
   </script>
 
 </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form with Local Storage</title>
-  <style>
-    /* Your CSS styles here */
-  </style>
-</head>
-<body>
-
-  <form id="myForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <button type="submit">Submit</button>
-  </form>
-
-  <script>
-    // Your JavaScript code here
-    document.getElementById('myForm').addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent the default form submission
-
-      // Get form data using FormData
-      let formData = new FormData(event.target);
-
-      // Convert FormData to a plain object
-      let formDataObject = {};
-      formData.forEach((value, key) => {
-        formDataObject[key] = value;
-      });
-
-      // Convert the object to a JSON string and store it in local storage
-      localStorage.setItem('formData', JSON.stringify(formDataObject));
-
-      // Optionally, you can clear the form fields after submission
-      event.target.reset();
-
-      alert('Form data saved to local storage!');
-    }); -->
-  <!-- </script>
-
-</body>
-</html> -->
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form with Local Storage</title>
-  <style>
-    /* Your CSS styles here */
-  </style>
-</head>
-<body>
-
-  <form id="myForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <button type="submit">Submit</button>
-  </form>
-
-  <script>
-    // Your JavaScript code here
-    document.getElementById('myForm').addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent the default form submission
-
-      // Get form data
-      let name = document.getElementById('name').value;
-      let email = document.getElementById('email').value;
-
-      // Create an object to store the form data
-      let formData = {
-        name: name,
-        email: email
-      };
-
-      // Convert the object to a JSON string and store it in local storage
-      localStorage.setItem('formData', JSON.stringify(formData));
-
-      // Optionally, you can clear the form fields after submission
-      document.getElementById('name').value = '';
-      document.getElementById('email').value = '';
-
-      alert('Form data saved to local storage!');
-    });
-  </script>
-
-</body>
-</html> -->

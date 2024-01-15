@@ -20,36 +20,55 @@
                 <legend>Personal Details</legend>
                 <div class="container">
                     <div class="details">
-                        <label for="txtFname">First Name<span>*</span>:</label>
-                        <input type="text" id="txtFname" name="First Name" placeholder="first name" autofocus required>
-                        <label for="txtMname">Middle Name:</label>
-                        <input type="text" id="txtMname" name="Middle Name" placeholder="middle name">
-                        <label for="txtLname">Last Name<span>*</span>:</label>
-                        <input type="text" id="txtLname" name="Last Name" placeholder="last name" required>
-                        <label for="dateBirthday">Birthday:</label>
-                        <input type="date" id="dateBirthday" name="Birthday">
-                        <label for="txtEmail">E-mail<span>*</span>:</label>
-                        <input type="email" id="txtEmail" name="Email" placeholder="example@mail.com" required>
-                        <label for="telContact">Contact<span>*</span>:</label>
-                        <select name="Country Code">
-                            <option value="+91">+91</option>
-                            <option value="+81">+81</option>
-                            <option value="+86">+86</option>
-                            <option value="+93">+93</option>
-                        </select>
-                        <input type="tel" id="telContact" name="Contact" pattern="^[789]\d{9}$" required>
-
-                        <label>Gender<span>*</span>:</label>
-                        <input type="radio" id="radioMale" name="Gender" value="Male" required>
-                        <label class="gen" for="radioMale">Male</label>
-                        <input type="radio" id="radioFemale" name="Gender" value="Female">
-                        <label class="gen" for="radioFemale">Female</label>
-                        <label for="txtAddress1">Address&nbspLine1<span>*</span>:</label>
-                        <input type="text" id="txtAddress1" name="Address Line 1" required>
-                        <label for="txtAddress2">Address&nbspLine2&nbsp:</label>
-                        <input type="text" id="txtAddress2" name="Address Line 2">
-                        <label for="txtAddress3">Address&nbspLine3&nbsp;:</label>
-                        <input type="text" id="txtAddress3" name="Address Line 3">
+                        <div>
+                            <label for="txtFname">First Name<span>*</span>:</label>
+                            <input type="text" id="txtFname" name="First Name" placeholder="first name" autofocus data-control="required">
+                        </div>
+                        <div>
+                            <label for="txtMname">Middle Name:</label>
+                            <input type="text" id="txtMname" name="Middle Name" placeholder="middle name">
+                        </div>
+                        <div>
+                            <label for="txtLname">Last Name<span>*</span>:</label>
+                            <input type="text" id="txtLname" name="Last Name" placeholder="last name" data-control="required">
+                        </div>
+                        <div>
+                            <label for="dateBirthday">Birthday:</label>
+                            <input type="date" id="dateBirthday" name="Birthday">
+                        </div>
+                        <div>
+                            <label for="txtEmail">E-mail<span>*</span>:</label>
+                            <input type="email" id="txtEmail" name="Email" placeholder="example@mail.com" data-control="required">
+                        </div>
+                        <div>
+                            <label for="telContact">Contact<span>*</span>:</label>
+                            <select name="Country Code">
+                                <option value="+91">+91</option>
+                                <option value="+81">+81</option>
+                                <option value="+86">+86</option>
+                                <option value="+93">+93</option>
+                            </select>
+                            <input type="tel" id="telContact" name="Contact" pattern="^[789]\d{9}$" data-control="required">
+                        </div>
+                        <div>
+                            <label>Gender<span>*</span>:</label>
+                            <input type="radio" id="radioMale" name="Gender" value="Male" data-control="required">
+                            <label class="gen" for="radioMale">Male</label>
+                            <input type="radio" id="radioFemale" name="Gender" value="Female">
+                            <label class="gen" for="radioFemale">Female</label>
+                        </div>
+                        <div>
+                            <label for="txtAddress1">Address&nbspLine1<span>*</span>:</label>
+                            <input type="text" id="txtAddress1" name="Address Line 1" data-control="required">
+                        </div>
+                        <div>
+                            <label for="txtAddress2">Address&nbspLine2&nbsp:</label>
+                            <input type="text" id="txtAddress2" name="Address Line 2">
+                        </div>
+                        <div>
+                            <label for="txtAddress3">Address&nbspLine3&nbsp;:</label>
+                            <input type="text" id="txtAddress3" name="Address Line 3">
+                        </div>
                     </div>
                     <div class="profile">
                         <img title="please upload jpeg/png image" id="fileProfileImage" src="profile.png"
@@ -63,9 +82,9 @@
                 <legend>Educational Details</legend>
                 <div>
                     <label for="txthighschoolname">High School Name<span>*</span>:</label>
-                    <input type="text" id="txthighschoolname" name="High School Name" required>
+                    <input type="text" id="txthighschoolname" name="High School Name" data-control="required">
                     <label for="numTenth">Percentage<span>*</span>:</label>
-                    <input id="numTenth" type="number" step=".01" min="0" max="100" name="High School Marks" required>
+                    <input id="numTenth" type="number" step=".01" min="0" max="100" name="High School Marks" data-control="required">
                     <input type="file" name="Tenth Marksheet">
                 </div>
                 <div>
@@ -73,39 +92,44 @@
                     <input type="text" id="txtinterschoolname" name="Inter School Name">
                     <label for="numTwelveth">Percentage<span>*</span>:</label>
                     <input id="numTwelveth" type="number" step=".01" min="0" max="100" name="Inter School Marks"
-                        required>
+                        data-control="required">
                     <input type="file" name="Twelveth Marksheet">
                 </div>
                 <div>
                     <label for="txtuniversityname">University Name<span>*</span>:</label>
-                    <input type="text" id="txtuniversityname" name="University Name" required>
+                    <input type="text" id="txtuniversityname" name="University Name" data-control="required">
                     <label for="numGraduation">CGPA<span>*</span>:</label>
-                    <input id="numGraduation" type="number" step=".01" min="0" max="10" name="Graduation CGPA" required>
+                    <input id="numGraduation" type="number" step=".01" min="0" max="10" name="Graduation CGPA" data-control="required">
                     <input type="file" name="Graduation Marksheet">
                 </div>
             </fieldset>
 
             <fieldset class="additional">
                 <legend>Additional Information(optional)</legend>
-                <label for="lstLocation">Preferred Location:</label>
-                <input type="text" list="lstLocation" name="Preferred Location">
-                <datalist id="lstLocation">
-                    <option value="Bhubaneswar">
-                    <option value="Bangalore">
-                    <option value="Chennai">
-                    <option value="Mumbai">
-                    <option value="Noida">
-                </datalist>
-                <label for="textareaCover">Cover Letter:</label>
-                <textarea id="textareaCover" name="Cover Letter"></textarea>
+                <div>
+                    <label for="lstLocation">Preferred Location:</label>
+                    <input type="text" list="lstLocation" name="Preferred Location">
+                    <datalist id="lstLocation">
+                        <option value="Bhubaneswar">
+                        <option value="Bangalore">
+                        <option value="Chennai">
+                        <option value="Mumbai">
+                        <option value="Noida">
+                    </datalist>
+                </div>
+                <div>
+                    <label for="textareaCover">Cover Letter:</label>
+                    <textarea id="textareaCover" name="Cover Letter"></textarea>
+                </div>
             </fieldset>
-
-            <label for="chkbxAccept"><input type="checkbox" name="Confirmation" id="chkbxAccept">By submitting this form,
-                I confirm that I have read and agree to the terms and conditions of the service and that all the
-                information I have provided is true and accurate to the best of my knowledge.</label>
-            <div class="btn">
-                <input class="btns" type="submit" value="Submit">
-                <input class="btns" type="reset" value="Reset">
+            <div>
+                <label for="chkbxAccept"><input type="checkbox" name="Confirmation" id="chkbxAccept">By submitting this form,
+                    I confirm that I have read and agree to the terms and conditions of the service and that all the
+                    information I have provided is true and accurate to the best of my knowledge.</label>
+                <div class="btn">
+                    <input class="btns" type="submit" value="Submit">
+                    <input class="btns" type="reset" value="Reset">
+                </div>
             </div>
         </form>
     </div>
@@ -118,6 +142,7 @@
         <div id="modalContent"></div>
     </div>
     <div id="overlay"></div>
+    <script src="formvalidation.js"></script>
     <script src="profile.js"></script>
     <script src="store_show.js"></script>
     <!-- <script src="localstorage.js"></script> -->
